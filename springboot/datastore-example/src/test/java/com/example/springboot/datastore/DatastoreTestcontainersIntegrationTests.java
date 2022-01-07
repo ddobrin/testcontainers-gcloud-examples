@@ -43,7 +43,7 @@ public class DatastoreTestcontainersIntegrationTests {
   @Container
   private static final DatastoreEmulatorContainer datastoreEmulator =
       new DatastoreEmulatorContainer(
-          DockerImageName.parse("gcr.io/google.com/cloudsdktool/cloud-sdk:317.0.0-emulators"));
+          DockerImageName.parse("gcr.io/google.com/cloudsdktool/cloud-sdk:367.0.0-emulators"));
 
   @DynamicPropertySource
   static void emulatorProperties(DynamicPropertyRegistry registry) {
