@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.SpannerEmulatorContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -63,8 +64,8 @@ public class SpannerIntegrationTests {
   private static Spanner spanner;
   private static DatabaseClient databaseClient;
 
-  @BeforeAll
-  static void setup() throws IOException, ExecutionException, InterruptedException {
+  @BeforeEach
+  void setup() throws IOException, ExecutionException, InterruptedException {
     // Configure Spanner client to connect to the emulator
     SpannerOptions options =
         SpannerOptions.newBuilder()

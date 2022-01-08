@@ -15,8 +15,8 @@
   <modules>
     <module>pubsub-example</module>
     <module>datastore-example</module>
-    <module>spanner-example</module>
     <module>firestore-example</module>
+<!--    <module>spanner-example</module>-->
   </modules>
 
   <properties>
@@ -103,7 +103,7 @@
       <dependency>
         <groupId>com.google.cloud</groupId>
         <artifactId>libraries-bom</artifactId>
-        <version>8.1.0</version>
+        <version>24.1.2</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
