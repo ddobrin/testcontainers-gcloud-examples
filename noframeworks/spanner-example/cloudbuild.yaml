@@ -1,0 +1,38 @@
+steps:
+#  - name: gcr.io/$PROJECT_ID/remote-builder
+#    waitFor: ["-"]
+#    secretEnv: ['TC_CLOUD_TOKEN']
+#    env:
+#      # Use Container Optimized OS
+#      # https://cloud.google.com/container-optimized-os/docs/
+#      - INSTANCE_ARGS=--image-project cos-cloud --image-family cos-stable
+#      - ZONE=us-central1-f
+#      - USERNAME=cloud-user
+#      # Run a script from the local build context in a Docker container
+#      - COMMAND=docker run -v /home/cloud-user/workspace:/workspace ubuntu:16.04 bash -xe /workspace/int-tests.sh
+
+#  - id: 'integration tests'
+#    name: 'gcr.io/cloud-builders/gcloud'
+#    entrypoint: 'bash'
+#    args: [ './int-tests.sh' ]
+#    secretEnv: ['TC_CLOUD_TOKEN']
+
+#  - name: 'ubuntu'
+#    args: [ 'bash', '-c', './int-tests.sh' ]
+#    secretEnv: ['TC_CLOUD_TOKEN']
+
+  - name: maven:3-jdk-11
+    entrypoint: mvn
+    args: ["verify"]
+  - name: maven:3-jdk-11
+    entrypoint: mvn
+    args: ["package", "-Dmaven.test.skip=true"]
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "noframeworks/spanner-example/Dockerfile", "-t", "gcr.io/$PROJECT_ID/noframeworks-spanner-example", "--build-arg=JAR_FILE=noframeworks/spanner-example/target/noframeworks-spanner-example-1.0.jar", "."]
+images: ["gcr.io/$PROJECT_ID/noframeworks-spanner-example"]
+
+#availableSecrets:
+#  secretManager:
+#    - versionName: projects/dan-workshop-project-332213/secrets/TC_CLOUD_TOKEN/versions/latest
+#      env: TC_CLOUD_TOKEN
+# [END cloudbuild_maven]

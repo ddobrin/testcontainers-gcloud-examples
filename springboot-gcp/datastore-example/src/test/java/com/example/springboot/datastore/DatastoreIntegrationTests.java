@@ -48,12 +48,12 @@ public class DatastoreIntegrationTests {
   @Test
   void testCrud() {
     Person p = new Person();
-    p.setName("Ray");
+    p.setName("Dan");
     Person saved = personRepsitory.save(p);
     assertNotNull(saved.getId());
 
     Person retrieved = personRepsitory.findById(saved.getId()).get();
-    assertEquals("Ray", retrieved.getName());
+    assertEquals("Dan", retrieved.getName());
 
     personRepsitory.delete(retrieved);
     assertFalse(personRepsitory.existsById(saved.getId()));

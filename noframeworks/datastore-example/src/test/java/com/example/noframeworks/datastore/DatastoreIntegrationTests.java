@@ -61,14 +61,14 @@ public class DatastoreIntegrationTests {
     PersonDao dao = new PersonDao(datastore);
 
     Person p = new Person();
-    p.setName("Ray");
+    p.setName("Dan");
     Long id = dao.save(p);
 
     Person retrieved = dao.findById(id);
     assertNotNull(retrieved);
     assertNotNull(retrieved.getId());
     assertEquals(id, retrieved.getId());
-    assertEquals("Ray", retrieved.getName());
+    assertEquals("Dan", retrieved.getName());
 
     dao.delete(retrieved.getId());
     assertNull(dao.findById(retrieved.getId()));

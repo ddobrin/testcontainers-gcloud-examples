@@ -63,12 +63,12 @@ public class FirestoreIntegrationTests {
   @Test
   void testCrud() {
     Person p = new Person();
-    p.setName("Ray");
+    p.setName("Dan");
     Person saved = personRepsitory.save(p).block();
     assertNotNull(saved.getId());
 
     Person retrieved = personRepsitory.findById(saved.getId()).block();
-    assertEquals("Ray", retrieved.getName());
+    assertEquals("Dan", retrieved.getName());
 
     personRepsitory.delete(retrieved).block();
     assertFalse(personRepsitory.existsById(saved.getId()).block());

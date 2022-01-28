@@ -5,7 +5,7 @@
   <parent>
     <artifactId>testcontainers-gcloud-examples</artifactId>
     <groupId>org.example</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -13,9 +13,9 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>pubsub-example</module>
-    <module>datastore-example</module>
-    <module>firestore-example</module>
+<!--    <module>pubsub-example</module>-->
+<!--    <module>datastore-example</module>-->
+<!--    <module>firestore-example</module>-->
     <module>spanner-example</module>
   </modules>
 

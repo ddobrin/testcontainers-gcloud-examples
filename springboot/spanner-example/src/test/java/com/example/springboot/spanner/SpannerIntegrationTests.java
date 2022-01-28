@@ -133,11 +133,11 @@ public class SpannerIntegrationTests {
   void testCrud() {
     Person p = new Person();
     p.setId(UUID.randomUUID().toString());
-    p.setName("Ray");
+    p.setName("Dan");
     Person saved = personRepsitory.save(p);
 
     Person retrieved = personRepsitory.findById(saved.getId()).get();
-    assertEquals("Ray", retrieved.getName());
+    assertEquals("Dan", retrieved.getName());
 
     personRepsitory.delete(retrieved);
     assertFalse(personRepsitory.existsById(saved.getId()));
