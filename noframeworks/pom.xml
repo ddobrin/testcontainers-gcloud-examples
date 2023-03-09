@@ -13,18 +13,18 @@
   <packaging>pom</packaging>
 
   <modules>
-<!--    <module>pubsub-example</module>-->
-<!--    <module>datastore-example</module>-->
-<!--    <module>firestore-example</module>-->
-    <module>spanner-example</module>
+   <module>pubsub-example</module>
+   <module>datastore-example</module>
+   <module>firestore-example</module>
+   <module>spanner-example</module>
   </modules>
 
   <properties>
-    <junit.version>5.7.0</junit.version>
-    <testcontainers.version>1.16.2</testcontainers.version>
-    <awaitility.version>4.0.3</awaitility.version>
-    <mockito.version>3.6.0</mockito.version>
-    <slf4j.version>1.7.29</slf4j.version>
+    <junit.version>5.9.2</junit.version>
+    <testcontainers.version>1.17.6</testcontainers.version>
+    <awaitility.version>4.2.0</awaitility.version>
+    <mockito.version>5.1.1</mockito.version>
+    <slf4j.version>1.7.36</slf4j.version>
   </properties>
 
   <dependencies>

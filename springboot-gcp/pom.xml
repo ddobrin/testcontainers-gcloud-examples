@@ -20,17 +20,17 @@
   </modules>
 
   <properties>
-    <java.version>11</java.version>
+    <java.version>17</java.version>
 
     <!-- Use Spring Cloud GCP maintained by Google - latest release -->
-    <spring-cloud-gcp.version>2.0.7</spring-cloud-gcp.version>
+    <spring-cloud-gcp.version>4.0.0</spring-cloud-gcp.version>
     <!-- Use corresponding Spring Cloud and Spring Boot version for the chosen Spring Cloud GCP version -->
-    <spring-cloud.version>2020.0.5</spring-cloud.version>
+    <spring-cloud.version>2022.0.1</spring-cloud.version>
     <spring-boot.version>2.5.8</spring-boot.version>
 
-    <testcontainers.version>1.16.2</testcontainers.version>
-    <awaitility.version>4.0.3</awaitility.version>
-    <mockito.version>3.6.0</mockito.version>
+    <testcontainers.version>1.17.6</testcontainers.version>
+    <awaitility.version>4.2.0</awaitility.version>
+    <mockito.version>5.1.1</mockito.version>
   </properties>
 
   <dependencies>

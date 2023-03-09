@@ -64,7 +64,7 @@ public class PubSubIntegrationTests {
   @Container
   private static final PubSubEmulatorContainer pubsubEmulator =
       new PubSubEmulatorContainer(
-          DockerImageName.parse("gcr.io/google.com/cloudsdktool/cloud-sdk:367.0.0-emulators"));
+          DockerImageName.parse("gcr.io/google.com/cloudsdktool/cloud-sdk:420.0.0-emulators"));
 
   private static ManagedChannel emulatorChannel;
   private static TransportChannelProvider emulatorChannelProvider;
