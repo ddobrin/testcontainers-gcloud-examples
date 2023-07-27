@@ -19,6 +19,7 @@ import com.google.api.core.ApiService;
 import com.google.api.gax.core.CredentialsProvider;
 import com.google.api.gax.rpc.TransportChannelProvider;
 import com.google.cloud.pubsub.v1.AckReplyConsumer;
+import com.google.cloud.pubsub.v1.MessageReceiver;
 import com.google.cloud.pubsub.v1.Subscriber;
 import com.google.pubsub.v1.PubsubMessage;
 import java.util.function.Consumer;
@@ -32,12 +33,25 @@ public class PubSubWorker {
 
   public PubSubWorker(String subscriptionName) {
     this.listener = null;
+
+    MessageReceiver receiver = (PubsubMessage message, AckReplyConsumer consumer) -> {
+      // Handle incoming message, then ack the received message.
+      System.out.println("Id: " + message.getMessageId());
+      System.out.println("Data: " + message.getData().toStringUtf8());
+
+      consumer.ack();
+
+      if (listener != null) {
+        listener.accept(message);
+      }
+    };
+
     this.subscriber =
         Subscriber.newBuilder(
-                subscriptionName,
-                (msg, reply) -> {
-                  process(msg, reply);
-                })
+                subscriptionName, receiver)
+                // (msg, reply) -> {
+                //   process(msg, reply);
+                // })
             .build();
   }
 
@@ -46,24 +60,38 @@ public class PubSubWorker {
       TransportChannelProvider channelProvider,
       CredentialsProvider credentialsProvider) {
     this.listener = listener;
+
+    MessageReceiver receiver = (PubsubMessage message, AckReplyConsumer consumer) -> {
+      // Handle incoming message, then ack the received message.
+      System.out.println("Id: " + message.getMessageId());
+      System.out.println("Data: " + message.getData().toStringUtf8());
+
+      consumer.ack();
+
+      if (listener != null) {
+        listener.accept(message);
+      }
+    };
+
     this.subscriber =
         Subscriber.newBuilder(
-                subscriptionName,
-                (msg, reply) -> {
-                  process(msg, reply);
-                })
+                subscriptionName, receiver)
+                // (msg, reply) -> {
+                //   process(msg, reply);
+                // })
             .setChannelProvider(channelProvider)
             .setCredentialsProvider(credentialsProvider)
             .build();
   }
 
-  protected void process(PubsubMessage msg, AckReplyConsumer reply) {
-    reply.ack();
+  // protected MessageReceiver process(PubsubMessage msg, AckReplyConsumer reply) {
+  //   reply.ack();
 
-    if (listener != null) {
-      listener.accept(msg);
-    }
-  }
+  //   if (listener != null) {
+  //     listener.accept(msg);
+  //   }
+  //   return null;
+  // }
 
   public void start() {
     subscriber.startAsync();

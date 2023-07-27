@@ -48,7 +48,7 @@ public class FirestoreIntegrationTests {
   @Container
   private static final FirestoreEmulatorContainer firestoreEmulator =
       new FirestoreEmulatorContainer(
-          DockerImageName.parse("gcr.io/google.com/cloudsdktool/cloud-sdk:420.0.0-emulators"));
+          DockerImageName.parse("gcr.io/google.com/cloudsdktool/cloud-sdk:439.0.0-emulators"));
 
   private Firestore firestore;
 

@@ -59,7 +59,7 @@ public class SpannerIntegrationTests {
   @Container
   private static final SpannerEmulatorContainer spannerEmulator =
       new SpannerEmulatorContainer(
-          DockerImageName.parse("gcr.io/cloud-spanner-emulator/emulator:1.4.0"));
+          DockerImageName.parse("gcr.io/cloud-spanner-emulator/emulator:1.5.7"));
 
   private static Spanner spanner;
   private static DatabaseClient databaseClient;
