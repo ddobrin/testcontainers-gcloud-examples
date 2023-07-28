@@ -19,20 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import com.example.noframeworks.pubsub.firestore.Person;
-import com.example.noframeworks.pubsub.firestore.PersonDao;
-import com.google.api.gax.core.FixedCredentialsProvider;
-import com.google.api.gax.grpc.InstantiatingGrpcChannelProvider;
-import com.google.auth.Credentials;
 import com.google.cloud.NoCredentials;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.FirestoreOptions;
-import com.google.common.collect.ImmutableMap;
 import java.io.IOException;
-import java.net.URI;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,7 +38,7 @@ public class FirestoreIntegrationTests {
   @Container
   private static final FirestoreEmulatorContainer firestoreEmulator =
       new FirestoreEmulatorContainer(
-          DockerImageName.parse("gcr.io/google.com/cloudsdktool/cloud-sdk:439.0.0-emulators"));
+          DockerImageName.parse("gcr.io/google.com/cloudsdktool/google-cloud-cli:emulators"));
 
   private Firestore firestore;
 

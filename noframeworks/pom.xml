@@ -13,10 +13,11 @@
   <packaging>pom</packaging>
 
   <modules>
-   <module>pubsub-example</module>
-   <module>datastore-example</module>
-   <module>firestore-example</module>
-   <module>spanner-example</module>
+    <module>pubsub-example</module>
+    <module>datastore-example</module>
+    <module>firestore-example</module>
+    <module>spanner-example</module>
+    <module>bigtable-example</module>
   </modules>
 
   <properties>

@@ -19,8 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import com.example.noframeworks.pubsub.datastore.Person;
-import com.example.noframeworks.pubsub.datastore.PersonDao;
 import com.google.cloud.NoCredentials;
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.DatastoreOptions;
@@ -39,7 +37,7 @@ public class DatastoreIntegrationTests {
   @Container
   private static final DatastoreEmulatorContainer datastoreEmulator =
       new DatastoreEmulatorContainer(
-          DockerImageName.parse("gcr.io/google.com/cloudsdktool/cloud-sdk:439.0.0-emulators"));
+          DockerImageName.parse("gcr.io/google.com/cloudsdktool/google-cloud-cli:emulators"));
 
   private Datastore datastore;
 

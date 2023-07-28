@@ -1,4 +1,4 @@
-package com.example.noframeworks.pubsub.firestore;
+package com.example.noframeworks.firestore;
 
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;

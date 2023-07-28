@@ -1,14 +1,14 @@
-package com.example.noframeworks.pubsub.datastore;
+package com.example.noframeworks.spanner;
 
 public class Person {
-  private Long id;
+  private String id;
   private String name;
 
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 

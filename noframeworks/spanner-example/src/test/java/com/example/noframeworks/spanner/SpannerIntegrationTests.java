@@ -19,8 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import com.example.noframeworks.pubsub.spanner.Person;
-import com.example.noframeworks.pubsub.spanner.PersonDao;
 import com.google.api.gax.longrunning.OperationFuture;
 import com.google.cloud.spanner.Database;
 import com.google.cloud.spanner.DatabaseAdminClient;
@@ -36,13 +34,10 @@ import com.google.spanner.admin.database.v1.CreateDatabaseMetadata;
 import com.google.spanner.admin.instance.v1.CreateInstanceMetadata;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.SpannerEmulatorContainer;
@@ -59,7 +54,7 @@ public class SpannerIntegrationTests {
   @Container
   private static final SpannerEmulatorContainer spannerEmulator =
       new SpannerEmulatorContainer(
-          DockerImageName.parse("gcr.io/cloud-spanner-emulator/emulator:1.5.7"));
+          DockerImageName.parse("gcr.io/cloud-spanner-emulator/emulator"));
 
   private static Spanner spanner;
   private static DatabaseClient databaseClient;

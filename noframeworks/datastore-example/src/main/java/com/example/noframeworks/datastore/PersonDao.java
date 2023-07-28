@@ -1,4 +1,4 @@
-package com.example.noframeworks.pubsub.datastore;
+package com.example.noframeworks.datastore;
 
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.Entity;

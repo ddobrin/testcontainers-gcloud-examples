@@ -1,4 +1,4 @@
-package com.example.noframeworks.pubsub.spanner;
+package com.example.noframeworks.spanner;
 
 import com.google.cloud.spanner.DatabaseClient;
 import com.google.cloud.spanner.Key;
