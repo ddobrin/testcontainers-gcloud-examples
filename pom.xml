@@ -19,7 +19,7 @@
   <modules>
     <module>noframeworks</module>
     <!--    <module>springboot</module>-->
-    <module>springboot-gcp</module>
+    <!--    <module>springboot-gcp</module>-->
   </modules>
 
   <build>
